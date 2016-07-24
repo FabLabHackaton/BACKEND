@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from users.models import *
 # Create your models here.
 class Negocio(models.Model):
 
@@ -7,11 +8,20 @@ class Negocio(models.Model):
 		verbose_name='Negocio'
 		verbose_name_plural='Negocios'
 
+	#Relations
+	user = models.ForeignKey(
+		User,
+		blank=False,
+		null=True
+	)
+
+	#Fields
+
 	name = models.CharField(
 		'nombre',
 		max_length=255,
 		blank=False
-		)
+	)
 
 	phone_regex = RegexValidator(
 		regex=r'^\+?1?\d{10,15}$',
