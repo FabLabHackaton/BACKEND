@@ -1,0 +1,1 @@
+web: gunicorn Cencuentra.wsgi --log-file -
