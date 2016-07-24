@@ -10,4 +10,7 @@ urlpatterns = [
     url(r'negocio/$', api_view.NegocioView.as_view(), name='negocio_api'),
     url(r'negocio/(?P<pk>[0-9]+)/$', api_view.NegocioDetailView.as_view(), name='negocio_api_detail'),
     
+    url(r'promo/$', api_view.PromoView.as_view(), name='promo_api'),
+    url(r'promo/(?P<pk>[0-9]+)/$', api_view.PromoDetailView.as_view(), name='promo_api_detail'),
+    
     ]

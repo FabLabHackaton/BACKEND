@@ -52,3 +52,6 @@ class Negocio(models.Model):
 		max_length=500,
 		blank=True
 	)
+	
+	def __str__(self):
+		return self.name
