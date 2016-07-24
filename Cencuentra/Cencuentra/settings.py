@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #apps
     'users',
     'negocios',
+    'promos',
     'api',
     #Rest Framework
     'rest_framework',
