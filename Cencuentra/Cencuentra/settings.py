@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jom+wl=a=ig&l*)1(p_tt27%zfbskc+kpqn5+rwkvox7ji6zxe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOW_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-"""DATABASES['default'] = dj_database_url.config()"""
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
