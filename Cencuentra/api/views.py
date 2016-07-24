@@ -48,4 +48,14 @@ class NegocioDetailView(generics.RetrieveUpdateDestroyAPIView):
 	serializer_class = NegocioSerializer
 
 
+class PromoView(generics.ListCreateAPIView):
+
+	queryset = Promo.objects.all()
+	serializer_class = DefaultPromoSerializer
+
+
+class PromoDetailView(generics.RetrieveUpdateDestroyAPIView):
+
+	queryset = Promo.objects.all()
+	serializer_class = PromoSerializer
 

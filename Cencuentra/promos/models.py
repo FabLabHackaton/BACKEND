@@ -33,3 +33,6 @@ class Promo(models.Model):
 			'descuento cantidad',
 			blank=True
 		)
+
+	def __str__(self):
+		return self.name

@@ -2,6 +2,7 @@
 from rest_framework import serializers
 from users.models import *
 from negocios.models import *
+from promos.models import *
 
 #Default Serializers
 #user
@@ -19,7 +20,16 @@ class DefaultNegocioSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Negocio
 		fields = ['id', 'name', 'phone_number', 'opening','closing','lat','lon', 'user','user_id']
-    	
+    
+class DefaultPromoSerializer(serializers.ModelSerializer):
+
+	negocio = DefaultNegocioSerializer(many=False, read_only=True)
+	negocio_id = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Negocio.objects.all(), source='promo')
+	
+	class Meta:
+		model = Promo
+		fields = ['id', 'name', 'article', 'discountP','discountC','negocio','negocio_id']
+
 
 #Registro Usuario
 class UserRegisterSerializer(serializers.ModelSerializer):
@@ -53,3 +63,13 @@ class NegocioSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Negocio
 		fields = ['id', 'name', 'phone_number', 'opening','closing','lat','lon','user']
+
+
+class PromoSerializer(serializers.ModelSerializer):
+
+	negocio = DefaultNegocioSerializer(many=False, read_only=True)
+
+	class Meta:
+		model = Promo
+		fields = ['id', 'name', 'article', 'discountP','discountC','negocio']
+
