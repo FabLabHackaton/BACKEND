@@ -1,1 +1,1 @@
-web: gunicorn Cencuentra.wsgi
+web: gunicorn Cencuentra.wsgi --log-file -
